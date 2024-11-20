@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+        input{
+            background-color: white;
+            border-radius: 50px;
+        }
+        h1{
+            text-align: center;
+            font-family: "Gravitas One", serif;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        body{
+            background-color: peachpuff;
+            font-family: "Gravitas One", serif;
+        }
+        li {
+          margin-bottom: 10px;
+        }
+
+        li button {
+          font-size: 12px;
+          margin-left: 20px;
+          color:black;
+          background-color: #ED8282;
+          border-radius: 50px;
+          border: 1px solid black;
+          font-family: "Gravitas One", serif;
+        }
+
+        .mid{
+          display: flex;
+          flex-direction: column;
+        }
+
+        #btnn{
+          font-size: 15px;
+          margin-left: 20px;
+          color:black;
+          background-color: #ca1111;
+          border-radius: 50px;
+          border: 1px solid black;
+          max-width: 200px;
+          font-family: "Gravitas One", serif;
+          margin-right: 35px;
+        }
+
+        .clearall{
+          display: flex;
+          justify-content: center;
+        }
+
+        #btn{
+          font-size: 15px;
+          margin-left: 20px;
+          color:black;
+          background-color: #167ead;
+          border-radius: 50px;
+          border: 0.2px solid black;
+          max-width: 200px;
+          font-family: "Gravitas One", serif;
+
+        }
+
+        #btn:hover{
+          background-color: solid black;
+        }
+
+        
+    </style>
+  </head>
+  <body>
+    <div class="mid">
+    <h1>My shopping list</h1>
+
+    <div class="box">
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button id="btn">Add item</button>
+    </div>
+  </div>
+
+    <ul id="ullist">
+
+    </ul>
+    <div class="clearall">
+    <button id="btnn">Clear All</button>
+    </div>
+
+    <script>
+        const ullist = document.querySelector("#ullist");
+        const item = document.querySelector("#item");
+        const btn =document.querySelector("#btn")
+        const btnn = document.querySelector('#btnn')
+
+        btn.addEventListener("click",values =()=>{
+            const value = item.value;
+            item.value='';
+
+            const lilist = document.createElement('li')
+            const span = document.createElement("span")
+            const btns = document.createElement("button")
+
+        lilist.appendChild(span);
+        lilist.appendChild(btns);
+
+        span.textContent=value;
+        btns.textContent="Delete"
+
+        ullist.appendChild(lilist);
+        ullist.appendChild(btnn);
+
+        btns.addEventListener("click",()=>{
+            lilist.remove();
+        })
+
+        btnn.addEventListener("click",()=>{
+          lilist.remove();
+        })
+
+        input.focus();
+        })
+
+    </script>
+  </body>
+</html>
